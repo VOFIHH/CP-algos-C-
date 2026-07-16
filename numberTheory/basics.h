@@ -9,9 +9,9 @@ T binpow(T a, T b , const T MOD) { // O(logn) exponentiation
     T ans = 1;
     while (b) {
         if (b & 1) {
-            ans = ans * a % MOD;
+            ans =(u128)ans * a % MOD;
         }
-        a = a * a % MOD;
+        a =(u128)a * a % MOD;
         b >>= 1;
     }
     return ans;
@@ -75,7 +75,7 @@ bool isprime(ull n){ // a^d - 1 = 0   or a^2rd + 1 = 0 (mod n) ,r-> (0 , s-1]
 
 template<typename  T> 
 T modinv ( T a , const T m ){ 
-    if(isprime(a))binpow(a,m-2,m);
+    if(isprime(a)) return binpow(a,m-2,m);
     T x ,y ;
     T g = ex_gcd(a , m, x , y);
     if (g!= 1)return -1;
